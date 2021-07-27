@@ -8,6 +8,8 @@ from locators.page_count import PageCountLocator
 from parsers.book_parser import BookParser
 
 logger = logging.getLogger('scraping.all_books_page')
+
+
 # Child of the logger we defined
 
 class AllBooksPage:
@@ -21,7 +23,7 @@ class AllBooksPage:
         return [BookParser(book) for book in self.soup.select(AllBooksPageLocators.BOOKS)]
 
     @property
-    def page_count(self): 
+    def page_count(self):
         logger.debug('Finding all number of catalogue pages available...')
         content = self.soup.select_one(PageCountLocator.COUNT).string
         logger.info(f'Found number of catalogue pages available: `{content}`.')
