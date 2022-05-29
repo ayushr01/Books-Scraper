@@ -16,6 +16,7 @@ logger = logging.getLogger('scraping')  # The name of our logger is scraping
 
 logger.info('Loading books list...')
 
+print('Loading books list...')
 page_content = requests.get('http://books.toscrape.com').content
 page = AllBooksPage(page_content)
 
